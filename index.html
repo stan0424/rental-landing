@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新莊幸福站公園宅｜方正採光1房1廳｜可寵</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc; /* A light grey background */
+        }
+        .thumbnail {
+            cursor: pointer;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .thumbnail:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+        .thumbnail.active {
+            border-color: #3b82f6; /* Blue-500 */
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="container mx-auto max-w-6xl p-4 md:p-8 pb-32 lg:pb-8">
+
+        <!-- Header and Main Image Section -->
+        <header class="mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">新莊幸福站公園宅｜方正採光1房1廳</h1>
+            <p class="text-lg text-blue-600 font-semibold mt-1">✨ 可寵物・電梯大樓・全新設備 ✨</p>
+        </header>
+
+        <!-- Image Gallery Section -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+            <!-- Main Image -->
+            <div class="md:col-span-9 h-[60vh] md:h-[520px] max-h-[500px] md:max-h-full rounded-lg overflow-hidden shadow-lg bg-gray-100 flex justify-center items-center">
+                <img id="mainImage" src="https://i.postimg.cc/VsnSNwhs/175798662602854408-jpg-1000x-water2.png" 
+                     alt="房屋主要照片" class="w-auto h-auto max-w-full max-h-full object-contain transition-opacity duration-300 ease-in-out"
+                     onerror="this.onerror=null;this.src='https://placehold.co/800x600/e2e8f0/475569?text=圖片載入失敗';">
+            </div>
+
+            <!-- Thumbnails -->
+            <div id="thumbnailContainer" class="md:col-span-3 grid grid-cols-3 md:grid-cols-2 gap-2 mt-4 md:mt-0 md:h-[520px] md:max-h-full">
+                <!-- Thumbnails will be injected by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 lg:gap-8">
+            
+            <!-- Left Column: Property Details -->
+            <div class="lg:col-span-8">
+                <!-- Tags & Highlights -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">屋主自租</span>
+                    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">捷運旁</span>
+                    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">可養寵物</span>
+                    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">可開伙</span>
+                    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">有電梯</span>
+                </div>
+                
+                <!-- Description -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">房屋介紹</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        地點絕佳，生活機能滿分！鄰近親水公園與環狀線幸福站，給自己一個舒適又便利的家。
+                        格局方正，擁有大陽台，採光極佳，室內明亮通風，居住品質高。
+                        全屋全新粉刷，屋況極佳，並附上兩台全新冷氣，讓您在炎炎夏日也能涼爽舒適。
+                        歡迎您與心愛的毛小孩一同入住，共享美好時光。
+                    </p>
+                </div>
+                
+                <!-- Surrounding Area -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">周邊機能</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        生活機能極佳，滿足您食衣住行育樂全方位需求：
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+                         <div class="flex items-start space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-500 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                              <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V4zm3 0h4v1H8V4zm0 2h4v1H8V6zm0 2h4v1H8V8zm0 2h4v1H8v10zm-1 2h6v1H7v-1z" />
+                              <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V4zm3 0h4v1H8V4zm0 2h4v1H8V6zm0 2h4v1H8V8zm0 2h4v1H8v10zm-1 2h6v1H7v-1z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold">便利生活</h3>
+                                <p class="text-sm">樓下就有早餐店，路口有美廉社、蝦皮店到店及萊爾富，生活超便利。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-500 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 2a6 6 0 00-6 6c0 1.293.424 2.484 1.144 3.444l-2.09 6.269a.5.5 0 00.657.657l6.269-2.09A6.002 6.002 0 0010 14a6 6 0 000-12zm0 10a4 4 0 110-8 4 4 0 010 8z" />
+                                <path d="M12 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold">美食天堂</h3>
+                                <p class="text-sm">鄰近福壽街商圈，從早餐到宵夜，各式美食應有盡有。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-500 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4z" clip-rule="evenodd" />
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold">購物娛樂</h3>
+                                <p class="text-sm">宏匯廣場不遠，購物、看電影、享受悠閒午後超方便。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M11.99 2.001A8.003 8.003 0 004 10a8 8 0 108.001-7.999zM10 16a6 6 0 110-12 6 6 0 010 12z" />
+                                <path d="M6 9a.5.5 0 00.5.5h1.94a.5.5 0 00.443-.72l-1.12-2.24a.5.5 0 00-.886 0L6.057 8.78a.5.5 0 00.443.72H8.5a.5.5 0 000-1H6.5A.5.5 0 006 9zm5 0a.5.5 0 00.5.5h1.94a.5.5 0 00.443-.72l-1.12-2.24a.5.5 0 00-.886 0L11.057 8.78a.5.5 0 00.443.72h2a.5.5 0 000-1h-2a.5.5 0 00-.5.5z" />
+                                <path d="M10 14s.32-1.325.795-2.204a.5.5 0 00-.4-.69C9.888 11.01 9 11 9 11s1.333-.5 2.5-.5h.095c.866 0 1.905.4 1.905 1.5 0 .667-.333 1.167-.666 1.5-.334.333-.667.5-.667.5s-.333-.167-.666-.5c-.334-.333-.667-.833-.667-1.5a.5.5 0 00-1 0c0 1.11.888 1.666 1.666 1.666.778 0 1.667-.556 1.667-1.666 0-1.5-1.5-2.5-3-2.5-1.5 0-3 1-3 2.5 0 1.11.888 1.666 1.666 1.666h.167a.5.5 0 00.499-.333L10 14z" />
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold">公園綠地</h3>
+                                <p class="text-sm">除了親水公園，還有塭仔底濕地公園，是溜小孩、散步的好去處。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-500 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L9 9.61v5.07a1 1 0 001.527.845l4-2a1 1 0 00.473-.845V9.61l6.394-2.69a1 1 0 000-1.84l-7-3zM14 8.39l-4 1.69v-3.74l4-1.69v3.74zM8 8.39l-4-1.69v-2.3l4 1.69v2.3z" />
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold">優質學區</h3>
+                                <p class="text-sm">鄰近昌平國小、昌隆國小，孩子上學好安心。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">房屋亮點</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-gray-700">
+                        <div class="flex items-center space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            <span>近環狀線幸福站</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 18.734V6a2 2 0 012-2h4a2 2 0 012 2v4z" /></svg>
+                            <span>寵物友善</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
+                            <span>電梯大樓</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                            <span>採光絕佳</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.24a2 2 0 00-1.846.957l-1.644 3.288a1 1 0 00.342 1.342l.342.171a2 2 0 002.12-.424l1.022-1.022a6 6 0 013.408-1.732l.318-.158a6 6 0 003.86-.517l.318.158a6 6 0 013.408 1.732l1.022 1.022a2 2 0 002.12.424l.342-.171a1 1 0 00.342-1.342l-1.644-3.288z" /></svg>
+                            <span>全新冷氣</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipment -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">提供設備</h2>
+                    <ul class="list-disc list-inside text-gray-700 grid grid-cols-2 gap-2">
+                        <li>兩台全新冷氣</li>
+                        <li>冰箱</li>
+                        <li>洗衣機</li>
+                        <li>電視</li>
+                        <li>床架</li>
+                        <li>天然瓦斯</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column: Contact & Price (Desktop) -->
+            <aside class="hidden lg:block lg:col-span-4 lg:sticky lg:top-8 self-start">
+                <div class="bg-white p-6 rounded-lg shadow-xl border border-gray-200">
+                    <div class="text-center mb-4">
+                        <p class="text-gray-600">月租金</p>
+                        <div class="flex justify-center items-baseline">
+                             <p class="text-4xl font-bold text-blue-600">$22,800</p>
+                             <p class="text-lg font-normal text-gray-500 ml-2">元/月</p>
+                             <p class="text-base font-medium text-emerald-600 ml-2">(可議)</p>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-1">(租金含管理費)</p>
+                    </div>
+
+                    <div class="space-y-3 text-gray-700 mb-6">
+                        <p><strong>地址:</strong> 新北市新莊區中華路二段258巷9號</p>
+                        <p><strong>格局:</strong> 1房 / 1廳 / 1衛 / 1陽台</p>
+                        <p><strong>坪數:</strong> 16.4 坪 (權狀)</p>
+                        <p><strong>樓層:</strong> 3F / 6F (有電梯)</p>
+                        <p><strong>押金:</strong> 兩個月</p>
+                        <p><strong>最短租期:</strong> 一年</p>
+                    </div>
+
+                    <div class="border-t pt-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">聯絡方式</h3>
+                        <p class="text-red-600 font-bold mb-3 text-center">【屋主自租，仲介勿擾】</p>
+                        <p class="text-gray-700"><strong>聯絡人:</strong> 賴小姐</p>
+                        <p class="text-gray-700 mb-4"><strong>手機:</strong> 0958-917-866</p>
+                        <p class="text-xs text-gray-500 -mt-3 mb-4 text-center">（若無人接聽請留訊息，會盡快回覆）</p>
+
+                        <div class="grid grid-cols-2 gap-2">
+                             <a href="tel:0958917866" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg text-center transition-colors duration-300 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                                電話預約
+                            </a>
+                            <a href="https://line.me/ti/p/hyJSJhx6CJ" target="_blank" rel="noopener noreferrer" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg text-center transition-colors duration-300 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M20.2,4.8a5.9,5.9,0,0,0-8.4,0l-7,7a6,6,0,0,0,8.4,8.4l4.4-4.3a1,1,0,0,0-1.4-1.4L11.9,18a4,4,0,0,1-5.6-5.6l7-7a4,4,0,0,1,5.6,5.6l-1.7,1.7a1,1,0,1,0,1.4,1.4l1.7-1.7a6,6,0,0,0,0-8.4Z"/></svg>
+                                加LINE詢問
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            
+        </main>
+
+    </div>
+
+    <!-- Sticky Contact Bar for Mobile -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white p-3 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] lg:hidden z-50">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-sm font-bold text-gray-800">$22,800 <span class="text-xs font-normal">/月 (可議)</span></p>
+                    <p class="text-xs text-gray-500">賴小姐</p>
+                </div>
+                <div class="flex gap-2 w-1/2">
+                    <a href="tel:0958917866" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded-lg text-center transition-colors duration-300 flex items-center justify-center text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                        電話
+                    </a>
+                    <a href="https://line.me/ti/p/hyJSJhx6CJ" target="_blank" rel="noopener noreferrer" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-2 rounded-lg text-center transition-colors duration-300 flex items-center justify-center text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M20.2,4.8a5.9,5.9,0,0,0-8.4,0l-7,7a6,6,0,0,0,8.4,8.4l4.4-4.3a1,1,0,0,0-1.4-1.4L11.9,18a4,4,0,0,1-5.6-5.6l7-7a4,4,0,0,1,5.6,5.6l-1.7,1.7a1,1,0,1,0,1.4,1.4l1.7-1.7a6,6,0,0,0,0-8.4Z"/></svg>
+                        LINE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            'https://i.postimg.cc/VsnSNwhs/175798662602854408-jpg-1000x-water2.png',
+            'https://i.postimg.cc/9FBrGpVv/175798663882778908-jpg-1000x-water2.png',
+            'https://i.postimg.cc/L6SJY7dt/175798664299881106-jpg-1000x-water2.png',
+            'https://i.postimg.cc/XY7XxCYX/175798664819311905-jpg-1000x-water2.png',
+            'https://i.postimg.cc/vZqTKZ4h/175798665740777300-jpg-1000x-water2.png',
+            'https://i.postimg.cc/YSv0BBgH/175798667796901101-jpg-1000x-water2.png',
+            'https://i.postimg.cc/QMvtXYkW/175798669536670100-jpg-1000x-water2.png',
+            'https://i.postimg.cc/FRcK1bDC/175807987135518109-jpg-1000x-water2.png',
+            'https://i.postimg.cc/QC3d7Bz8/175807987517910104-jpg-1000x-water2.png',
+            'https://i.postimg.cc/C5sLshyj/S-11411480.jpg'
+        ];
+
+        const mainImage = document.getElementById('mainImage');
+        const thumbnailContainer = document.getElementById('thumbnailContainer');
+
+        // Populate thumbnails
+        images.forEach((src, index) => {
+            const thumbWrapper = document.createElement('div');
+            thumbWrapper.classList.add('thumbnail', 'rounded-md', 'border-2', 'bg-gray-100', 'flex', 'items-center', 'justify-center', 'overflow-hidden');
+            
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `房屋照片 ${index + 1}`;
+            img.classList.add('w-auto', 'h-auto', 'max-w-full', 'max-h-full', 'object-contain');
+            
+            if (index === 0) {
+                thumbWrapper.classList.add('active');
+            }
+            thumbWrapper.dataset.index = index;
+            img.dataset.index = index; 
+            
+            img.onerror = function() {
+                this.onerror=null;
+                this.src='https://placehold.co/150x100/e2e8f0/475569?text=圖片載入失敗';
+            };
+            thumbWrapper.appendChild(img);
+            thumbnailContainer.appendChild(thumbWrapper);
+        });
+
+        // Add click event to thumbnails
+        thumbnailContainer.addEventListener('click', (e) => {
+            const target = e.target.closest('.thumbnail');
+            if (target) {
+                const index = target.dataset.index;
+                
+                // Fade out, change src, fade in
+                mainImage.style.opacity = '0';
+                
+                setTimeout(() => {
+                    mainImage.src = images[index];
+                    mainImage.style.opacity = '1';
+                }, 300);
+
+                // Update active thumbnail
+                document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+                target.classList.add('active');
+            }
+        });
+
+    </script>
+
+</body>
+</html>
+
