@@ -17,11 +17,11 @@
         .main-swiper {
             width: 100%;
             height: 60vh; /* 手機上的高度 */
-            border-radius: 0.5rem;
         }
         @media (min-width: 768px) {
             .main-swiper {
                 height: 520px; /* 電腦版高度 */
+                border-radius: 0.5rem;
             }
         }
         .main-swiper .swiper-slide {
@@ -34,7 +34,7 @@
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* 圖片完整顯示，不裁切 */
+            object-fit: cover; /* 將圖片填滿容器，可能會裁切 */
             cursor: pointer;
         }
 
@@ -43,6 +43,11 @@
             cursor: pointer;
             transition: opacity 0.3s ease, transform 0.3s ease;
             border: 2px solid transparent;
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 縮圖也填滿容器 */
         }
         .thumbnail:hover {
             opacity: 0.8;
@@ -74,7 +79,7 @@
             display: flex; justify-content: center; align-items: center;
         }
         .lightbox-gallery-swiper .swiper-slide img {
-            max-width: 95vw; max-height: 80vh; object-fit: contain;
+            max-width: 95vw; max-height: 80vh; object-fit: contain; /* 放大後維持完整，不裁切 */
         }
         /* 燈箱 - 縮圖輪播 */
         .lightbox-thumbs-swiper {
@@ -102,9 +107,9 @@
 </head>
 <body class="bg-gray-50">
 
-    <div class="container mx-auto max-w-6xl p-4 md:p-8 pb-32 lg:pb-8">
+    <div class="container mx-auto max-w-6xl py-4 md:p-8 pb-32 lg:pb-8">
 
-        <header class="mb-8">
+        <header class="mb-8 px-4 md:px-0">
             <h1 class="text-3xl md:text-4xl font-bold text-gray-800">新莊幸福站公園宅｜方正採光1房1廳</h1>
             <p class="text-lg text-blue-600 font-semibold mt-1">✨ 可寵物・電梯大樓・全新設備 ✨</p>
         </header>
@@ -112,7 +117,7 @@
         <!-- Image Gallery Section -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
             <!-- Main Swiper -->
-            <div class="md:col-span-9 rounded-lg overflow-hidden shadow-lg">
+            <div class="md:col-span-8 md:rounded-lg overflow-hidden shadow-lg">
                 <div id="main-swiper-container" class="swiper main-swiper">
                     <div class="swiper-wrapper">
                         <!-- Slides will be injected by JavaScript -->
@@ -121,13 +126,13 @@
             </div>
 
             <!-- Thumbnails -->
-            <div id="thumbnailContainer" class="md:col-span-3 grid grid-cols-3 md:grid-cols-2 gap-2 mt-4 md:mt-0 md:h-[520px] md:max-h-full">
+            <div id="thumbnailContainer" class="md:col-span-4 grid grid-cols-3 md:grid-cols-2 gap-2 mt-4 md:mt-0 md:h-[520px] md:max-h-full px-4 md:px-0">
                 <!-- Thumbnails will be injected by JavaScript -->
             </div>
         </div>
         
         <!-- Main Content Area -->
-        <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 lg:gap-8">
+        <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 lg:gap-8 px-4 md:px-0">
             
             <div class="lg:col-span-8">
                 <div class="flex flex-wrap gap-2 mb-6">
@@ -379,7 +384,7 @@
                 // Page Thumbnail
                 const thumbWrapper = document.createElement('div');
                 thumbWrapper.classList.add('thumbnail', 'rounded-md', 'border-2', 'bg-gray-100', 'flex', 'items-center', 'justify-center', 'overflow-hidden');
-                thumbWrapper.innerHTML = `<img src="${src}" alt="縮圖 ${index + 1}" class="w-auto h-auto max-w-full max-h-full object-contain">`;
+                thumbWrapper.innerHTML = `<img src="${src}" alt="縮圖 ${index + 1}">`;
                 if (index === 0) thumbWrapper.classList.add('active');
                 thumbWrapper.dataset.index = index;
                 thumbnailContainer.appendChild(thumbWrapper);
