@@ -6,11 +6,39 @@
     <title>新莊幸福站公園宅｜方正採光1房1廳｜可寵</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: #f8fafc; /* A light grey background */
+            background-color: #f8fafc;
         }
+        /* 主輪播圖樣式 */
+        .main-swiper {
+            width: 100%;
+            height: 60vh; /* 手機上的高度 */
+            border-radius: 0.5rem;
+        }
+        @media (min-width: 768px) {
+            .main-swiper {
+                height: 520px; /* 電腦版高度 */
+            }
+        }
+        .main-swiper .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f5f9;
+        }
+        .main-swiper .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 圖片完整顯示，不裁切 */
+            cursor: pointer;
+        }
+
+        /* 頁面縮圖樣式 */
         .thumbnail {
             cursor: pointer;
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -24,13 +52,58 @@
             border-color: #3b82f6; /* Blue-500 */
             box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
         }
+
+        /* 全螢幕燈箱樣式 */
+        .lightbox {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000; display: none; flex-direction: column;
+            justify-content: center; align-items: center; padding: 1rem;
+        }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 20px;
+            width: 40px; height: 40px; color: white;
+            cursor: pointer; z-index: 1001;
+        }
+        /* 燈箱 - 主圖輪播 */
+        .lightbox-gallery-swiper {
+            width: 100%;
+            height: 80%;
+        }
+        .lightbox-gallery-swiper .swiper-slide {
+            display: flex; justify-content: center; align-items: center;
+        }
+        .lightbox-gallery-swiper .swiper-slide img {
+            max-width: 95vw; max-height: 80vh; object-fit: contain;
+        }
+        /* 燈箱 - 縮圖輪播 */
+        .lightbox-thumbs-swiper {
+            width: 100%;
+            height: 15%;
+            margin-top: 10px;
+            padding: 10px 0;
+        }
+        .lightbox-thumbs-swiper .swiper-slide {
+            width: 25%; height: 100%; opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .lightbox-thumbs-swiper .swiper-slide-thumb-active {
+            opacity: 1; border: 2px solid #fff;
+        }
+        .lightbox-thumbs-swiper .swiper-slide img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        
+        /* 燈箱 - 左右箭頭 */
+        .swiper-button-next, .swiper-button-prev {
+            color: #ffffff;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
 
     <div class="container mx-auto max-w-6xl p-4 md:p-8 pb-32 lg:pb-8">
 
-        <!-- Header and Main Image Section -->
         <header class="mb-8">
             <h1 class="text-3xl md:text-4xl font-bold text-gray-800">新莊幸福站公園宅｜方正採光1房1廳</h1>
             <p class="text-lg text-blue-600 font-semibold mt-1">✨ 可寵物・電梯大樓・全新設備 ✨</p>
@@ -38,11 +111,13 @@
 
         <!-- Image Gallery Section -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-            <!-- Main Image -->
-            <div class="md:col-span-9 h-[60vh] md:h-[520px] max-h-[500px] md:max-h-full rounded-lg overflow-hidden shadow-lg bg-gray-100 flex justify-center items-center">
-                <img id="mainImage" src="https://i.postimg.cc/V6sLYSd2/175798662602854408-jpg-1000x-water2.jpg" 
-                     alt="房屋主要照片" class="w-auto h-auto max-w-full max-h-full object-contain transition-opacity duration-300 ease-in-out"
-                     onerror="this.onerror=null;this.src='https://placehold.co/800x600/e2e8f0/475569?text=圖片載入失敗';">
+            <!-- Main Swiper -->
+            <div class="md:col-span-9 rounded-lg overflow-hidden shadow-lg">
+                <div id="main-swiper-container" class="swiper main-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slides will be injected by JavaScript -->
+                    </div>
+                </div>
             </div>
 
             <!-- Thumbnails -->
@@ -50,13 +125,11 @@
                 <!-- Thumbnails will be injected by JavaScript -->
             </div>
         </div>
-
+        
         <!-- Main Content Area -->
         <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 lg:gap-8">
             
-            <!-- Left Column: Property Details -->
             <div class="lg:col-span-8">
-                <!-- Tags & Highlights -->
                 <div class="flex flex-wrap gap-2 mb-6">
                     <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">屋主自租</span>
                     <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">捷運旁</span>
@@ -65,7 +138,6 @@
                     <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">有電梯</span>
                 </div>
                 
-                <!-- Description -->
                 <div class="bg-white p-6 rounded-lg shadow-md mb-6">
                     <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">房屋介紹</h2>
                     <p class="text-gray-700 leading-relaxed">
@@ -76,7 +148,6 @@
                     </p>
                 </div>
                 
-                <!-- Surrounding Area -->
                 <div class="bg-white p-6 rounded-lg shadow-md mb-6">
                     <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">周邊機能</h2>
                     <p class="text-gray-700 leading-relaxed mb-4">
@@ -134,7 +205,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Features -->
                 <div class="bg-white p-6 rounded-lg shadow-md mb-6">
                     <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">房屋亮點</h2>
@@ -175,10 +246,9 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- Right Column: Contact & Price (Desktop) -->
+            
             <aside class="hidden lg:block lg:col-span-4 lg:sticky lg:top-8 self-start">
-                <div class="bg-white p-6 rounded-lg shadow-xl border border-gray-200">
+                 <div class="bg-white p-6 rounded-lg shadow-xl border border-gray-200">
                     <div class="text-center mb-4">
                         <p class="text-gray-600">月租金</p>
                         <div class="flex justify-center items-baseline">
@@ -218,9 +288,7 @@
                     </div>
                 </div>
             </aside>
-            
         </main>
-
     </div>
 
     <!-- Sticky Contact Bar for Mobile -->
@@ -245,69 +313,180 @@
         </div>
     </div>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <svg id="lightbox-close" class="lightbox-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+        
+        <!-- Gallery Swiper -->
+        <div id="lightbox-gallery-swiper" class="swiper lightbox-gallery-swiper">
+            <div class="swiper-wrapper">
+                <!-- Lightbox gallery slides will be injected by JavaScript -->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        
+        <!-- Thumbs Swiper -->
+        <div id="lightbox-thumbs-swiper" class="swiper lightbox-thumbs-swiper">
+            <div class="swiper-wrapper">
+                <!-- Lightbox thumbs slides will be injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Swiper.js JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        const images = [
-            'https://i.postimg.cc/V6sLYSd2/175798662602854408-jpg-1000x-water2.jpg',
-            'https://i.postimg.cc/hvfDdH8r/175798663882778908-jpg-1000x-water2.jpg',
-            'https://i.postimg.cc/HxSWjpMn/175798664299881106-jpg-1000x-water2.jpg',
-            'https://i.postimg.cc/7hdxMmmy/175798664819311905-jpg-1000x-water2.jpg',
-            'https://i.postimg.cc/QNyx3dsn/175798665740777300-jpg-1000x-water2.jpg',
-            'https://i.postimg.cc/jjtRXWQC/175798667796901101-jpg-1000x-water2.jpg',
-            'https://i.postimg.cc/y8q1DpDm/175798669536670100-jpg-1000x-water2.jpg',
-            'https://i.postimg.cc/kgxnKNSk/175807987135518109-jpg-1000x-water2.jpg',
-            'https://i.postimg.cc/g0smBYNs/175807987517910104-jpg-1000x-water2.jpg',
-            'https://i.postimg.cc/k4590kHm/S-11411480.jpg'
-        ];
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = [
+                'https://i.postimg.cc/V6sLYSd2/175798662602854408-jpg-1000x-water2.jpg',
+                'https://i.postimg.cc/hvfDdH8r/175798663882778908-jpg-1000x-water2.jpg',
+                'https://i.postimg.cc/HxSWjpMn/175798664299881106-jpg-1000x-water2.jpg',
+                'https://i.postimg.cc/7hdxMmmy/175798664819311905-jpg-1000x-water2.jpg',
+                'https://i.postimg.cc/QNyx3dsn/175798665740777300-jpg-1000x-water2.jpg',
+                'https://i.postimg.cc/jjtRXWQC/175798667796901101-jpg-1000x-water2.jpg',
+                'https://i.postimg.cc/y8q1DpDm/175798669536670100-jpg-1000x-water2.jpg',
+                'https://i.postimg.cc/kgxnKNSk/175807987135518109-jpg-1000x-water2.jpg',
+                'https://i.postimg.cc/g0smBYNs/175807987517910104-jpg-1000x-water2.jpg',
+                'https://i.postimg.cc/k4590kHm/S-11411480.jpg'
+            ];
 
-        const mainImage = document.getElementById('mainImage');
-        const thumbnailContainer = document.getElementById('thumbnailContainer');
+            const mainSwiperWrapper = document.querySelector('#main-swiper-container .swiper-wrapper');
+            const thumbnailContainer = document.getElementById('thumbnailContainer');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxCloseBtn = document.getElementById('lightbox-close');
+            const lightboxGalleryWrapper = document.querySelector('#lightbox-gallery-swiper .swiper-wrapper');
+            const lightboxThumbsWrapper = document.querySelector('#lightbox-thumbs-swiper .swiper-wrapper');
 
-        // Populate thumbnails
-        images.forEach((src, index) => {
-            const thumbWrapper = document.createElement('div');
-            thumbWrapper.classList.add('thumbnail', 'rounded-md', 'border-2', 'bg-gray-100', 'flex', 'items-center', 'justify-center', 'overflow-hidden');
-            
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = `房屋照片 ${index + 1}`;
-            img.classList.add('w-auto', 'h-auto', 'max-w-full', 'max-h-full', 'object-contain');
-            
-            if (index === 0) {
-                thumbWrapper.classList.add('active');
-            }
-            thumbWrapper.dataset.index = index;
-            img.dataset.index = index; 
-            
-            img.onerror = function() {
-                this.onerror=null;
-                this.src='https://placehold.co/150x100/e2e8f0/475569?text=圖片載入失敗';
-            };
-            thumbWrapper.appendChild(img);
-            thumbnailContainer.appendChild(thumbWrapper);
-        });
 
-        // Add click event to thumbnails
-        thumbnailContainer.addEventListener('click', (e) => {
-            const target = e.target.closest('.thumbnail');
-            if (target) {
-                const index = target.dataset.index;
+            let mainSwiper;
+            let lightboxGallerySwiper;
+            let lightboxThumbsSwiper;
+
+            // Populate all image containers
+            images.forEach((src, index) => {
+                const altText = `房屋照片 ${index + 1}`;
                 
-                // Fade out, change src, fade in
-                mainImage.style.opacity = '0';
+                // Main swiper slide
+                const mainSlide = document.createElement('div');
+                mainSlide.classList.add('swiper-slide');
+                mainSlide.innerHTML = `<img src="${src}" alt="${altText}" data-index="${index}">`;
+                mainSwiperWrapper.appendChild(mainSlide);
+
+                // Page Thumbnail
+                const thumbWrapper = document.createElement('div');
+                thumbWrapper.classList.add('thumbnail', 'rounded-md', 'border-2', 'bg-gray-100', 'flex', 'items-center', 'justify-center', 'overflow-hidden');
+                thumbWrapper.innerHTML = `<img src="${src}" alt="縮圖 ${index + 1}" class="w-auto h-auto max-w-full max-h-full object-contain">`;
+                if (index === 0) thumbWrapper.classList.add('active');
+                thumbWrapper.dataset.index = index;
+                thumbnailContainer.appendChild(thumbWrapper);
+
+                // Lightbox Gallery slide
+                const gallerySlide = document.createElement('div');
+                gallerySlide.classList.add('swiper-slide');
+                gallerySlide.innerHTML = `<img src="${src}" alt="${altText}">`;
+                lightboxGalleryWrapper.appendChild(gallerySlide);
                 
-                setTimeout(() => {
-                    mainImage.src = images[index];
-                    mainImage.style.opacity = '1';
-                }, 300);
+                // Lightbox Thumbs slide
+                const thumbSlide = document.createElement('div');
+                thumbSlide.classList.add('swiper-slide');
+                thumbSlide.innerHTML = `<img src="${src}" alt="縮圖 ${index + 1}">`;
+                lightboxThumbsWrapper.appendChild(thumbSlide);
+            });
 
-                // Update active thumbnail
-                document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
-                target.classList.add('active');
+            // Initialize Main Swiper
+            mainSwiper = new Swiper('#main-swiper-container', {
+                loop: false,
+                on: {
+                    slideChange: function () {
+                        updateActiveThumbnail(this.activeIndex);
+                    }
+                }
+            });
+            
+            // Page Thumbnail click event
+            thumbnailContainer.addEventListener('click', (e) => {
+                const target = e.target.closest('.thumbnail');
+                if (target) {
+                    const index = parseInt(target.dataset.index, 10);
+                    mainSwiper.slideTo(index);
+                }
+            });
+
+            function updateActiveThumbnail(index) {
+                document.querySelectorAll('.thumbnail').forEach(thumb => {
+                    thumb.classList.remove('active');
+                    if (parseInt(thumb.dataset.index, 10) === index) {
+                        thumb.classList.add('active');
+                    }
+                });
             }
-        });
 
+            // Lightbox functionality
+            mainSwiperWrapper.addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG') {
+                    const index = parseInt(e.target.dataset.index, 10);
+                    openLightbox(index);
+                }
+            });
+
+            function openLightbox(index) {
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+
+                if (lightboxThumbsSwiper) lightboxThumbsSwiper.destroy(true, true);
+                if (lightboxGallerySwiper) lightboxGallerySwiper.destroy(true, true);
+
+                lightboxThumbsSwiper = new Swiper("#lightbox-thumbs-swiper", {
+                    spaceBetween: 10,
+                    slidesPerView: 4,
+                    freeMode: true,
+                    watchSlidesProgress: true,
+                     breakpoints: {
+                        640: {
+                            slidesPerView: 6,
+                            spaceBetween: 20,
+                        },
+                        1024: {
+                            slidesPerView: 8,
+                            spaceBetween: 20,
+                        },
+                    },
+                });
+
+                lightboxGallerySwiper = new Swiper("#lightbox-gallery-swiper", {
+                    initialSlide: index,
+                    spaceBetween: 10,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    thumbs: {
+                        swiper: lightboxThumbsSwiper,
+                    },
+                });
+            }
+
+            function closeLightbox() {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = '';
+                if (lightboxGallerySwiper) lightboxGallerySwiper.destroy(true, true);
+                if (lightboxThumbsSwiper) lightboxThumbsSwiper.destroy(true, true);
+                lightboxGallerySwiper = null;
+                lightboxThumbsSwiper = null;
+            }
+
+            lightboxCloseBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                 if (e.target.classList.contains('lightbox')) {
+                    closeLightbox();
+                }
+            });
+        });
     </script>
-
 </body>
 </html>
 
